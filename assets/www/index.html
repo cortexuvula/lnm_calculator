@@ -1,10 +1,356 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-<head>
-<title>Cordova</title>
-<script type="text/javascript" charset="utf-8" src="cordova-2.0.0.js"></script>
-</head>
-<body>
-<h1>Hello Monet</h1>
-</body>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>
+        </title>
+        <link rel="stylesheet" href="jquery.mobile-1.1.1.min.css"
+        />
+        <link rel="stylesheet" href="my.css" />
+        <style>
+            /* App custom styles */
+        </style>
+        <script src="jquery-1.8.1.min.js">
+        </script>
+        <script src="jquery.mobile-1.1.1.min.js">
+        </script>
+        <script src="my.js">
+        </script>
+        <script type="text/javascript" charset="utf-8" src="cordova-2.0.0.js">
+        </script>
+    </head>
+    
+    <body>
+        <!-- Home -->
+        <div data-role="page" id="page1">
+            <div data-theme="a" data-role="header" data-position="fixed">
+                <h3>
+                    LMN Calculator
+                </h3>
+            </div>
+            <div data-role="content" style="padding: 15px">
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li>
+                            <a href="#page3" data-theme="b" data-icon="">
+                                LNM
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page5" data-theme="b" data-icon="">
+                                Weeks/Days
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page4" data-theme="b" data-icon="">
+                                EDD
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page6" data-theme="b" data-icon="">
+                                Past Date
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div style=" text-align:center">
+                    <img style="width: 100px; height: 100px" src="http://assets.codiqa.com/ps/32941/27205bec0d8c92dfPregnancyDueDate.png">
+                </div>
+                <div data-role="collapsible-set" data-theme="b" data-content-theme="a">
+                    <div data-role="collapsible" data-collapsed="true">
+                        <h3>
+                            How to use this app
+                        </h3>
+                        <div>
+                            <p>
+                                Select from the selection bar above the appropriate date selection.
+                            </p>
+                            <p><u>LNM - Last Normal Mentruation</u></br></br>Submit the last normal mentruation date that is know for the 
+                                pregnancy.
+                            </p>
+                            <p><u>Weeks and Days</u></br></br>Submit the weeks and days of the current pregnancy.
+                            </p>
+                            <p><u>EDD - Expected Date of Delivery</u></br></br>Submit the expected date of delivery that is known for the
+                                pregnancy.
+                            </p>
+                            <p><u>Past Date</u></br></br>Submit a past date with its associate weeks/days for the pregnancy.
+                            </p>
+
+                        </div>
+                    </div>
+                    <div data-role="collapsible" data-collapsed="true">
+                        <h3>
+                            Disclaimer
+                        </h3>
+                        <div>
+                            <p>
+                                This application is not a substitute for medical advice. Any and all liability
+                                arising directly or indirectly from the use of this application is hereby
+                                disclaimed. The information herein is provided "as is" and without any
+                                warranty expressed or implied. All direct, indirect, special, incidental,
+                                consequential or punitive damages arising from any use of this application
+                                or data contained herein is disclaimed and excluded.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- LNM -->
+        <div data-role="page" id="page3">
+            <div data-theme="a" data-role="header" data-position="fixed">
+                <h3>
+                    LMN Calculator
+                </h3>
+            </div>
+            <div data-role="content" style="padding: 15px">
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li>
+                            <a href="#page3" data-theme="b" data-icon="">
+                                LNM
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page5" data-theme="b" data-icon="">
+                                Weeks/Days
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page4" data-theme="b" data-icon="">
+                                EDD
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page6" data-theme="b" data-icon="">
+                                Past Date
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <form action="calculate()" method="POST">
+                    <div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup">
+                            <label for="textinput6">
+                                Last Normal Mentruation
+                            </label>
+                            <input name="lnmdate" id="textinput6" placeholder="" value="" type="date">
+                        </fieldset>
+                    </div>
+                </form>
+                <input type="submit" data-theme="b" value="Calculate">
+            </div>
+        </div>
+        <!-- Weeks Days -->
+        <div data-role="page" id="page5">
+            <div data-theme="a" data-role="header" data-position="fixed">
+                <h3>
+                    LMN Calculator
+                </h3>
+            </div>
+            <div data-role="content" style="padding: 15px">
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li>
+                            <a href="#page3" data-theme="b" data-icon="">
+                                LNM
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page5" data-theme="b" data-icon="">
+                                Weeks/Days
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page4" data-theme="b" data-icon="">
+                                EDD
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page6" data-theme="b" data-icon="">
+                                Past Date
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <form action="calculate()" method="POST">
+                    <div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup">
+                            <label for="textinput7">
+                                Weeks
+                            </label>
+                            <input name="nowweeks" id="textinput7" placeholder="" value="0" type="range" min="1" max="39">
+                        </fieldset>
+                    </div>
+                    <div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup">
+                            <label for="textinput15">
+                                Days
+                            </label>
+                            <input name="nowdays" id="textinput15" placeholder="" value="0" type="range" min="1" max="6">
+                        </fieldset>
+                    </div>
+                    <input type="submit" data-theme="b" value="Calculate">
+                </form>
+            </div>
+        </div>
+        <!-- EDD -->
+        <div data-role="page" id="page4">
+            <div data-theme="a" data-role="header" data-position="fixed">
+                <h3>
+                    LMN Calculator
+                </h3>
+            </div>
+            <div data-role="content" style="padding: 15px">
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li>
+                            <a href="#page3" data-theme="b" data-icon="">
+                                LNM
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page5" data-theme="b" data-icon="">
+                                Weeks/Days
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page4" data-theme="b" data-icon="">
+                                EDD
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page6" data-theme="b" data-icon="">
+                                Past Date
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <form action="">
+                    <div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup">
+                            <label for="textinput8">
+                                Expected Date of Delivery
+                            </label>
+                            <input name="edd" id="textinput8" placeholder="" value="" type="date">
+                        </fieldset>
+                    </div>
+                    <input type="submit" data-theme="b" value="Calculate">
+                </form>
+            </div>
+        </div>
+        <!-- Past Date -->
+        <div data-role="page" id="page6">
+            <div data-theme="a" data-role="header" data-position="fixed">
+                <h3>
+                    LMN Calculator
+                </h3>
+            </div>
+            <div data-role="content" style="padding: 15px">
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li>
+                            <a href="#page3" data-theme="b" data-icon="">
+                                LNM
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page5" data-theme="b" data-icon="">
+                                Weeks/Days
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page4" data-theme="b" data-icon="">
+                                EDD
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page6" data-theme="b" data-icon="">
+                                Past Date
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <form action="">
+                    <div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup">
+                            <label for="textinput9">
+                                Past Date
+                            </label>
+                            <input name="pastdate" id="textinput9" placeholder="" value="" type="date">
+                        </fieldset>
+                    </div>
+                    <div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup">
+                            <label for="textinput11">
+                                Weeks
+                            </label>
+                            <input name="pastweeks" id="textinput11" placeholder="" value="0" type="range" min="1" max="39">
+                        </fieldset>
+                    </div>
+                    <div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup">
+                            <label for="textinput12">
+                                Past Days
+                            </label>
+                            <input name="pastdays" id="textinput12" placeholder="" value="0" type="range" min="1" max="6">
+                        </fieldset>
+                    </div>
+                    <input type="submit" data-theme="b" value="Calculate">
+                </form>
+            </div>
+        </div>
+        <!-- Result -->
+        <div data-role="page" id="page7">
+            <div data-theme="a" data-role="header" data-position="fixed">
+                <h3>
+                    LMN Calculator
+                </h3>
+            </div>
+            <div data-role="content" style="padding: 15px">
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li>
+                            <a href="#page3" data-theme="b" data-icon="">
+                                LNM
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page5" data-theme="b" data-icon="">
+                                Weeks/Days
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page4" data-theme="b" data-icon="">
+                                EDD
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page6" data-theme="b" data-icon="">
+                                Past Date
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <h4>
+                    Result
+                </h4>
+                <div>
+                    <p>
+                        Enter content here...
+                    </p>
+                </div>
+                <a data-role="button" data-transition="fade" data-theme="b" href="#page1"
+                data-icon="home" data-iconpos="top">
+                    Home
+                </a>
+            </div>
+        </div>
+        <script>
+              //App custom javascript
+        </script>
+    </body>
+
 </html>
