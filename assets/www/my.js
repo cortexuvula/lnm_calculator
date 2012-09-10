@@ -273,3 +273,8 @@ function closestEnabledButton( element ) {
 
 	
 })(jQuery);
+
+function calculate(days){
+	
+
+}
