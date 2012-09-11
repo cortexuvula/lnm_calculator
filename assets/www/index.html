@@ -147,9 +147,9 @@
                         <fieldset data-role="controlgroup">
                             <label for="textinput6">
                                 Last Normal Mentruation
-                            </label>
-                            <input name="mode2" id="textinput6" type="text" data-role="datebox" 
-                            data-options='{"mode":"datebox","useNewStyle":true}' />
+                            </label>    
+                            <input name="lnm" id="textinput6" type="date" data-role="datebox"
+                               data-options='{"mode": "datebox"}'>
                         </fieldset>
                     </div>
                 </form>
@@ -247,7 +247,8 @@
                             <label for="textinput8">
                                 Expected Date of Delivery
                             </label>
-                            <input name="edd" id="textinput8" placeholder="" value="" type="date">
+                            <input name="edd" id="textinput8" type="date" data-role="datebox"
+                               data-options='{"mode": "datebox"}'>
                         </fieldset>
                     </div>
                     <input type="button" data-theme="b" value="Calculate" onClick="location.href='#page7';">
@@ -292,7 +293,8 @@
                             <label for="textinput9">
                                 Past Date
                             </label>
-                            <input name="pastdate" id="textinput9" placeholder="" value="" type="date">
+                            <input name="pastdate" id="textinput9" type="date" data-role="datebox"
+                               data-options='{"mode": "datebox"}'>
                         </fieldset>
                     </div>
                     <div data-role="fieldcontain">
