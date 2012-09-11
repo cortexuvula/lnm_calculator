@@ -20,7 +20,10 @@
         </script>
         <script type="text/javascript" charset="utf-8" src="cordova-2.0.0.js">
         </script>
-        <script type="text/javascript" src="purl.js"></script>
+        <link rel="stylesheet" type="text/css" href="jqm-datebox-1.1.0.css" /> 
+        <script type="text/javascript" src="jqm-datebox-1.1.0.core.js"></script>
+        <script type="text/javascript" src="jqm-datebox-1.1.0.mode.datebox.js"></script>
+        <script type="text/javascript" src="jquery.mobile.datebox.i18n.en_US.utf8.js"></script>
     </head>
     
     <body>
@@ -145,7 +148,8 @@
                             <label for="textinput6">
                                 Last Normal Mentruation
                             </label>
-                            <input name="lnmdate" id="textinput6" placeholder="" value="" type="date">
+                            <input name="mode2" id="textinput6" type="text" data-role="datebox" 
+                            data-options='{"mode":"datebox","useNewStyle":true}' />
                         </fieldset>
                     </div>
                 </form>
