@@ -60,7 +60,7 @@
                     </ul>
                 </div>
                 <div style=" text-align:center">
-                    <img style="width: 100px; height: 100px" src="http://assets.codiqa.com/ps/32941/27205bec0d8c92dfPregnancyDueDate.png">
+                    <img style="width: 100px; height: 100px" src="images/preg_icon.png">
                 </div>
                 <div data-role="collapsible-set" data-theme="b" data-content-theme="a">
                     <div data-role="collapsible" data-collapsed="true">
@@ -106,9 +106,9 @@
 
                 function onPageShow(e,data)
                 {
-                    
+                    clearValues();  
                 }
-                </script>
+            </script>
         </div>
         <!-- LNM -->
         <div data-role="page" id="page3">
@@ -142,6 +142,14 @@
                         </li>
                     </ul>
                 </div>
+                <script type="text/javascript">
+                $("#page3").on("pageshow", onPageShow);
+
+                function onPageShow(e,data)
+                {
+                    clearValues();  
+                }
+                </script>
                 <form action="" method="POST">
                     <div data-role="fieldcontain">
                         <fieldset data-role="controlgroup">
@@ -149,7 +157,7 @@
                                 Last Normal Mentruation
                             </label>    
                             <input name="lnm" id="textinput6" type="date" data-role="datebox"
-                               data-options='{"mode": "datebox"}'>
+                               data-options='{"mode": "datebox"}' value="">
                         </fieldset>
                     </div>
                 </form>
@@ -188,13 +196,21 @@
                         </li>
                     </ul>
                 </div>
+                <script type="text/javascript">
+                $("#page5").on("pageshow", onPageShow);
+
+                function onPageShow(e,data)
+                {
+                    clearValues();  
+                }
+                </script>
                 <form action="" method="POST">
                     <div data-role="fieldcontain">
                         <fieldset data-role="controlgroup">
                             <label for="textinput7">
                                 Weeks
                             </label>
-                            <input name="nowweeks" id="textinput7" placeholder="" value="0" type="range" min="1" max="39">
+                            <input name="nowweeks" id="textinput7" placeholder="" value="0" type="range" min="0" max="39">
                         </fieldset>
                     </div>
                     <div data-role="fieldcontain">
@@ -202,7 +218,7 @@
                             <label for="textinput15">
                                 Days
                             </label>
-                            <input name="nowdays" id="textinput15" placeholder="" value="0" type="range" min="1" max="6">
+                            <input name="nowdays" id="textinput15" placeholder="" value="0" type="range" min="0" max="6">
                         </fieldset>
                     </div>
                     <input type="button" data-theme="b" value="Calculate" onClick="location.href='#page7';">
@@ -241,6 +257,14 @@
                         </li>
                     </ul>
                 </div>
+                <script type="text/javascript">
+                $("#page4").on("pageshow", onPageShow);
+
+                function onPageShow(e,data)
+                {
+                    clearValues();  
+                }
+                </script>
                 <form action="">
                     <div data-role="fieldcontain">
                         <fieldset data-role="controlgroup">
@@ -248,7 +272,7 @@
                                 Expected Date of Delivery
                             </label>
                             <input name="edd" id="textinput8" type="date" data-role="datebox"
-                               data-options='{"mode": "datebox"}'>
+                               data-options='{"mode": "datebox"}' value="">
                         </fieldset>
                     </div>
                     <input type="button" data-theme="b" value="Calculate" onClick="location.href='#page7';">
@@ -287,6 +311,14 @@
                         </li>
                     </ul>
                 </div>
+                <script type="text/javascript">
+                $("#page6").on("pageshow", onPageShow);
+
+                function onPageShow(e,data)
+                {
+                    clearValues();  
+                }
+                </script>
                 <form action="">
                     <div data-role="fieldcontain">
                         <fieldset data-role="controlgroup">
@@ -294,7 +326,7 @@
                                 Past Date
                             </label>
                             <input name="pastdate" id="textinput9" type="date" data-role="datebox"
-                               data-options='{"mode": "datebox"}'>
+                               data-options='{"mode": "datebox"}' value="">
                         </fieldset>
                     </div>
                     <div data-role="fieldcontain">
@@ -302,7 +334,7 @@
                             <label for="textinput11">
                                 Weeks
                             </label>
-                            <input name="pastweeks" id="textinput11" placeholder="" value="0" type="range" min="1" max="39">
+                            <input name="pastweeks" id="textinput11" placeholder="" value="0" type="range" min="0" max="39">
                         </fieldset>
                     </div>
                     <div data-role="fieldcontain">
@@ -310,7 +342,7 @@
                             <label for="textinput12">
                                 Past Days
                             </label>
-                            <input name="pastdays" id="textinput12" placeholder="" value="0" type="range" min="1" max="6">
+                            <input name="pastdays" id="textinput12" placeholder="" value="0" type="range" min="0" max="6">
                         </fieldset>
                     </div>
                     <input type="button" data-theme="b" value="Calculate" onClick="location.href='#page7';">
@@ -331,26 +363,64 @@
                     Result
                 </h4>
                 <div>
-                    <p id="weekresult">
+                    <p id="result">
                     </p>
                 </div>
-                <a data-role="button" data-transition="fade" data-theme="b" href="#page1"
-                data-icon="home" data-iconpos="top">
-                    Home
+                <a data-role="button" data-transition="fade" data-theme="b" href="#page1">
+                    Return
                 </a>
                 <script type="text/javascript">
                 $("#page7").on("pageshow", onPageShow);
 
                 function onPageShow(e,data)
                 {
-                    var myweeks = $('#textinput7').val();
-                    $('#weekresult').html(myweeks);
+                    var lnm = $('#textinput6').val();
+                    var weeks = $('#textinput7').val();
+                    var days = $('#textinput15').val();
+                    var edd = $('#textinput8').val();
+                    var pastdate = $('#textinput9').val();
+                    var pastweeks = $('#textinput11').val();
+                    var pastdays = $('#textinput12').val();
+
+                    var result = "";
+
+                    if(lnm != ""){
+                        result += "in lnm";
+                    }  else if (edd != ""){
+                        result += "in edd";
+                    } else if (pastdate != ""){
+                        result += "in past";
+                        if (pastweeks == "0" && pastdays == "0"){
+                            result += "Weeks and days can not be 0. Please enter new values."
+                        }
+                    } else if (weeks != "0" || days != "0"){
+                        result += " in weeks total days ";
+                        var totalDays = (7 * parseInt(weeks, 10)) + parseInt(days, 10);
+                        result += totalDays;
+                    }  else {
+                        result += "You did not enter the values correctly. Please enter new values.";
+                    }                      
+                    result += "</br>LMN " + lnm + "</br>Weeks " + weeks + " </br>Days " + days + " </br>EDD " + edd + " </br>pastdate " + pastdate + " </br>pastweeks " + pastweeks + " </br>days " + days;
+                    $('#result').html(result);
+
+                    result = "";
+                    clearValues();
+
                 }
                 </script>
             </div>
         </div>
         <script>
               //App custom javascript
+              function clearValues(){
+                $('#textinput6').val("");
+                $('#textinput7').val(0);
+                $('#textinput15').val(0);
+                $('#textinput8').val("");
+                $('#textinput9').val("");
+                $('#textinput11').val(0);
+                $('#textinput12').val(0); 
+              }
         </script>
     </body>
 
