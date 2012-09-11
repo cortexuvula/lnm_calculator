@@ -394,9 +394,10 @@
                             result += "Weeks and days can not be 0. Please enter new values."
                         }
                     } else if (weeks != "0" || days != "0"){
-                        result += " in weeks total days ";
+                        result += " in weeks </br>";
                         var totalDays = (7 * parseInt(weeks, 10)) + parseInt(days, 10);
-                        result += totalDays;
+                        var today = new Date();
+                        result += "LNM " + today.setDate(today.getDate()-totalDays) + " days in total " + totalDays;
                     }  else {
                         result += "You did not enter the values correctly. Please enter new values.";
                     }                      
