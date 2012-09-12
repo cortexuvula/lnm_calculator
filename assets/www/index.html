@@ -396,8 +396,15 @@
                     } else if (weeks != "0" || days != "0"){
                         result += " in weeks </br>";
                         var totalDays = (7 * parseInt(weeks, 10)) + parseInt(days, 10);
-                        var today = new Date();
-                        result += "LNM " + today.setDate(today.getDate()-totalDays) + " days in total " + totalDays;
+                        var futureDays = 180 - totalDays;
+                        var lnmtoday = new Date();
+                        lnmtoday.setDate(lnmtoday.getDate()-totalDays)
+                        var lnmDate = new Date(lnmtoday);
+                        var eddtoday = new Date();
+                        eddtoday.setDate(eddtoday.getDate()+futureDays);
+                        var eddDate = new Date(eddtoday);
+                        result += "LNM " + lnmDate.getMonth() + "/" + lnmDate.getDate() + "/" + lnmDate.getFullYear()+ " days in total " + totalDays;
+                        result += "EDD " + eddDate.getMonth() + "/" + eddDate.getDate() + "/" + eddDate.getFullYear()+ " days in total " + futureDays;
                     }  else {
                         result += "You did not enter the values correctly. Please enter new values.";
                     }                      
