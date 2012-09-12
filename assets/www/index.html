@@ -358,7 +358,30 @@
                 </h3>
             </div>
             <div data-role="content" style="padding: 15px">
-                
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li>
+                            <a href="#page3" data-theme="b" data-icon="">
+                                LNM
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page5" data-theme="b" data-icon="">
+                                Weeks/Days
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page4" data-theme="b" data-icon="">
+                                EDD
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#page6" data-theme="b" data-icon="">
+                                Past Date
+                            </a>
+                        </li>
+                    </ul>
+                </div>
                 <h4>
                     Result
                 </h4>
@@ -367,7 +390,7 @@
                     </p>
                 </div>
                 <a data-role="button" data-transition="fade" data-theme="b" href="#page1">
-                    Return
+                    Home
                 </a>
                 <script type="text/javascript">
                 $("#page7").on("pageshow", onPageShow);
@@ -381,20 +404,41 @@
                     var pastdate = $('#textinput9').val();
                     var pastweeks = $('#textinput11').val();
                     var pastdays = $('#textinput12').val();
-
-                    var result = "";
+                    var result = ""
 
                     if(lnm != ""){
-                        result += "in lnm";
+                        if (lnm.length == 9){
+                            var year = parseInt(lnm.substring(5,9));
+                            var month = parseInt(lnm.substring(0,1));
+                            var day = parseInt(lnm.substring(2,4));
+                        } else{
+                            var year = parseInt(lnm.substring(6,10));
+                            var month = parseInt(lnm.substring(0,2));
+                            var day = parseInt(lnm.substring(3,5));
+                        }
+                        month -= 1;
+                        var lnmDate = new Date(year, month, day, 0, 0, 0, 0);
+                        
+                        var eddDate = new Date(lnmDate.getTime()+(86400000 * 280));
+                        var now = new Date();
+
+                         
+                        
+
+                        var timeDiff = Math.abs(now.getTime() - lnmDate.getTime());
+                        var diffDays = Math.floor(timeDiff / (1000 * 3600 * 24));
+                        var myweeks = Math.floor(diffDays / 7);
+                        var mydays = diffDays % 7;
+
+                        result = resultOutput(lnmDate, eddDate, myweeks, mydays);
+
                     }  else if (edd != ""){
                         result += "in edd";
                     } else if (pastdate != ""){
-                        result += "in past";
                         if (pastweeks == "0" && pastdays == "0"){
                             result += "Weeks and days can not be 0. Please enter new values."
                         }
                     } else if (weeks != "0" || days != "0"){
-                        result += " in weeks </br>";
                         var totalDays = (7 * parseInt(weeks, 10)) + parseInt(days, 10);
                         var futureDays = 180 - totalDays;
                         var lnmtoday = new Date();
@@ -403,15 +447,11 @@
                         var eddtoday = new Date();
                         eddtoday.setDate(eddtoday.getDate()+futureDays);
                         var eddDate = new Date(eddtoday);
-                        result += "LNM " + lnmDate.getMonth() + "/" + lnmDate.getDate() + "/" + lnmDate.getFullYear()+ " days in total " + totalDays;
-                        result += "EDD " + eddDate.getMonth() + "/" + eddDate.getDate() + "/" + eddDate.getFullYear()+ " days in total " + futureDays;
+                        result = resultOutput(lnmDate, eddDate, weeks, days);
                     }  else {
                         result += "You did not enter the values correctly. Please enter new values.";
                     }                      
-                    result += "</br>LMN " + lnm + "</br>Weeks " + weeks + " </br>Days " + days + " </br>EDD " + edd + " </br>pastdate " + pastdate + " </br>pastweeks " + pastweeks + " </br>days " + days;
                     $('#result').html(result);
-
-                    result = "";
                     clearValues();
 
                 }
@@ -428,6 +468,17 @@
                 $('#textinput9').val("");
                 $('#textinput11').val(0);
                 $('#textinput12').val(0); 
+              }
+              function resultOutput(templnm, tempedd, tempweeks, tempdays){
+                    var result = "";
+
+                    result += "Last Normal Mentruation:</br></br><b>" + templnm.toDateString() + "</b></br></br>";
+                    result += "Expected Date of Delivery:</br></br><b>" + tempedd.toDateString() + "</b></br></br>";
+                    result += "Currently <b>" + tempweeks + " weeks</b> and <b>" + tempdays + " days</b> pregnant.</br></br>";
+
+                    
+
+                    return result;
               }
         </script>
     </body>

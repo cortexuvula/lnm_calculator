@@ -487,4 +487,6 @@
 		width: 60%;
 	}
 }
-
+#result {
+  text-align: center;
+}
