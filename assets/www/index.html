@@ -405,12 +405,12 @@
                     var pastweeks = $('#textinput11').val();
                     var pastdays = $('#textinput12').val();
                     var result = ""
+                    var now = new Date()
 
                     if(lnm != ""){
                         
-                        var lnmDate = function checkMonthDate();                       
+                        var lnmDate = checkMonthDate(lnm);                       
                         var eddDate = new Date(lnmDate.getTime()+(86400000 * 280));
-                        var now = new Date();
                         var timeDiff = Math.abs(now.getTime() - lnmDate.getTime());
                         var diffDays = Math.floor(timeDiff / (1000 * 3600 * 24));
                         var myweeks = Math.floor(diffDays / 7);
@@ -419,8 +419,8 @@
 
                     }  else if (edd != ""){
 
-                        var eddDate = function checkMonthDate();
-                        var lnmDate = new Date(lnmDate.getTime()-(86400000 * 280));
+                        var eddDate = checkMonthDate(edd);
+                        var lnmDate = new Date(eddDate.getTime()-(86400000 * 280));
                         var timeDiff = Math.abs(now.getTime() - lnmDate.getTime());
                         var diffDays = Math.floor(timeDiff / (1000 * 3600 * 24));
                         var myweeks = Math.floor(diffDays / 7);
@@ -430,8 +430,14 @@
                     } else if (pastdate != ""){
                         if (pastweeks == "0" && pastdays == "0"){
                             result += "Weeks and days can not be 0. Please enter new values."
+                        } else if (pastweeks != "0" || pastdays != "0"){
+                            var pastDate = checkMonthDate(pastdate);
+                            var totalDays = (7 * parseInt(pastweeks, 10)) + parseInt(pastdays, 10);
+                            var lnmDate = new Date(pastDate.getTime()-(1000 * 3600 * 24 * totalDays));
+                            var eddDate = new Date(lnmDate.getTime()+(86400000 * 280));
+                            result = resultOutput(lnmDate, eddDate, pastweeks, pastdays);
                         }
-                        var pastDate = function checkMonthDate();
+                      
                         
                     } else if (weeks != "0" || days != "0"){
                         var totalDays = (7 * parseInt(weeks, 10)) + parseInt(days, 10);
@@ -447,21 +453,8 @@
                         result += "You did not enter the values correctly. Please enter new values.";
                     }                      
                     $('#result').html(result);
-                    clearValues();
-                    // Check if calendar month date is 1 or 2 digits
-                    function checkMonthDate(){
-                        if (lnm.length == 9){
-                            var year = parseInt(lnm.substring(5,9));
-                            var month = parseInt(lnm.substring(0,1));
-                            var day = parseInt(lnm.substring(2,4));
-                        } else{
-                            var year = parseInt(lnm.substring(6,10));
-                            var month = parseInt(lnm.substring(0,2));
-                            var day = parseInt(lnm.substring(3,5));
-                        }
-                        var multiDate = new Date(inputDate[0], inputDate[1]-1, inputDate[2], 0, 0, 0, 0);
-                        return multiDate;
-                    }
+                    // clearValues();
+                    
                 }
                 </script>
             </div>
@@ -476,6 +469,7 @@
                 $('#textinput9').val("");
                 $('#textinput11').val(0);
                 $('#textinput12').val(0); 
+                $('#result').html("");
               }
               function resultOutput(templnm, tempedd, tempweeks, tempdays){
                     var result = "";
@@ -488,6 +482,21 @@
 
                     return result;
               }
+              // Check if calendar month date is 1 or 2 digits
+                function checkMonthDate(checkDate){
+                    if (checkDate.length == 9){
+                        var year = parseInt(checkDate.substring(5,9));
+                        var month = parseInt(checkDate.substring(0,1));
+                        var day = parseInt(checkDate.substring(2,4));
+                    } else{
+                        var year = parseInt(checkDate.substring(6,10));
+                        var month = parseInt(checkDate.substring(0,2));
+                        var day = parseInt(checkDate.substring(3,5));
+                    }
+                    month -= 1;
+                    var multiDate = new Date(year, month, day, 0, 0, 0, 0);
+                    return multiDate;
+                }
         </script>
     </body>
 
