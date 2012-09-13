@@ -407,37 +407,32 @@
                     var result = ""
 
                     if(lnm != ""){
-                        if (lnm.length == 9){
-                            var year = parseInt(lnm.substring(5,9));
-                            var month = parseInt(lnm.substring(0,1));
-                            var day = parseInt(lnm.substring(2,4));
-                        } else{
-                            var year = parseInt(lnm.substring(6,10));
-                            var month = parseInt(lnm.substring(0,2));
-                            var day = parseInt(lnm.substring(3,5));
-                        }
-                        month -= 1;
-                        var lnmDate = new Date(year, month, day, 0, 0, 0, 0);
                         
+                        var lnmDate = function checkMonthDate();                       
                         var eddDate = new Date(lnmDate.getTime()+(86400000 * 280));
                         var now = new Date();
-
-                         
-                        
-
                         var timeDiff = Math.abs(now.getTime() - lnmDate.getTime());
                         var diffDays = Math.floor(timeDiff / (1000 * 3600 * 24));
                         var myweeks = Math.floor(diffDays / 7);
                         var mydays = diffDays % 7;
-
                         result = resultOutput(lnmDate, eddDate, myweeks, mydays);
 
                     }  else if (edd != ""){
-                        result += "in edd";
+
+                        var eddDate = function checkMonthDate();
+                        var lnmDate = new Date(lnmDate.getTime()-(86400000 * 280));
+                        var timeDiff = Math.abs(now.getTime() - lnmDate.getTime());
+                        var diffDays = Math.floor(timeDiff / (1000 * 3600 * 24));
+                        var myweeks = Math.floor(diffDays / 7);
+                        var mydays = diffDays % 7;
+                        result = resultOutput(lnmDate, eddDate, myweeks, mydays);
+
                     } else if (pastdate != ""){
                         if (pastweeks == "0" && pastdays == "0"){
                             result += "Weeks and days can not be 0. Please enter new values."
                         }
+                        var pastDate = function checkMonthDate();
+                        
                     } else if (weeks != "0" || days != "0"){
                         var totalDays = (7 * parseInt(weeks, 10)) + parseInt(days, 10);
                         var futureDays = 180 - totalDays;
@@ -453,7 +448,20 @@
                     }                      
                     $('#result').html(result);
                     clearValues();
-
+                    // Check if calendar month date is 1 or 2 digits
+                    function checkMonthDate(){
+                        if (lnm.length == 9){
+                            var year = parseInt(lnm.substring(5,9));
+                            var month = parseInt(lnm.substring(0,1));
+                            var day = parseInt(lnm.substring(2,4));
+                        } else{
+                            var year = parseInt(lnm.substring(6,10));
+                            var month = parseInt(lnm.substring(0,2));
+                            var day = parseInt(lnm.substring(3,5));
+                        }
+                        var multiDate = new Date(inputDate[0], inputDate[1]-1, inputDate[2], 0, 0, 0, 0);
+                        return multiDate;
+                    }
                 }
                 </script>
             </div>
