@@ -11,12 +11,16 @@
         <link rel="stylesheet" href="my.css" />
         <style>
             /* App custom styles */
+            * {
+                 margin: 0 auto;
+                -webkit-transform: translateZ(0);
+            }
         </style>
-        <script src="jquery-1.8.1.min.js">
+        <script type="text/javascript" src="jquery-1.8.1.min.js">
         </script>
-        <script src="jquery.mobile-1.1.1.min.js">
+        <script type="text/javascript" src="jquery.mobile-1.1.1.min.js">
         </script>
-        <script src="my.js">
+        <script type="text/javascript" src="my.js">
         </script>
         <script type="text/javascript" charset="utf-8" src="cordova-2.0.0.js">
         </script>
@@ -34,26 +38,26 @@
                     LMN Calculator
                 </h3>
             </div>
-            <div data-role="content" style="padding: 15px">
-                <div data-role="navbar" data-iconpos="top">
+            <div data-role="content" style="padding: 15px" >
+                <div data-role="navbar" data-iconpos="top" >
                     <ul>
                         <li>
-                            <a href="#page3" data-theme="b" data-icon="">
+                            <a href="#page3" data-transition="none" data-theme="b" data-icon="">
                                 LNM
                             </a>
                         </li>
                         <li>
-                            <a href="#page5" data-theme="b" data-icon="">
+                            <a href="#page5" data-transition="none" data-theme="b" data-icon="">
                                 Weeks/Days
                             </a>
                         </li>
                         <li>
-                            <a href="#page4" data-theme="b" data-icon="">
+                            <a href="#page4" data-transition="none" data-theme="b" data-icon="">
                                 EDD
                             </a>
                         </li>
                         <li>
-                            <a href="#page6" data-theme="b" data-icon="">
+                            <a href="#page6" data-transition="none" data-theme="b" data-icon="">
                                 Past Date
                             </a>
                         </li>
@@ -118,25 +122,25 @@
                 </h3>
             </div>
             <div data-role="content" style="padding: 15px">
-                <div data-role="navbar" data-iconpos="top">
+                <div data-role="navbar" data-iconpos="top" >
                     <ul>
                         <li>
-                            <a href="#page3" data-theme="b" data-icon="">
+                            <a href="#page3" data-transition="none" data-theme="b" data-icon="">
                                 LNM
                             </a>
                         </li>
                         <li>
-                            <a href="#page5" data-theme="b" data-icon="">
+                            <a href="#page5" data-transition="none" data-theme="b" data-icon="">
                                 Weeks/Days
                             </a>
                         </li>
                         <li>
-                            <a href="#page4" data-theme="b" data-icon="">
+                            <a href="#page4" data-transition="none" data-theme="b" data-icon="">
                                 EDD
                             </a>
                         </li>
                         <li>
-                            <a href="#page6" data-theme="b" data-icon="">
+                            <a href="#page6" data-transition="none" data-theme="b" data-icon="">
                                 Past Date
                             </a>
                         </li>
@@ -156,12 +160,13 @@
                             <label for="textinput6">
                                 Last Normal Mentruation
                             </label>    
-                            <input name="lnm" id="textinput6" type="date" data-role="datebox"
+                            <input name="lnm" id="textinput6" type="date" data-transition="none" data-role="datebox"
                                data-options='{"mode": "datebox"}' value="">
                         </fieldset>
                     </div>
                 </form>
-                <input type="button" data-theme="b" value="Calculate" onClick="location.href='#page7';">
+                <!-- <input type="button" data-theme="b" value="Calculate" onClick="location.href='#page7';"> -->
+                <a data-role="button" href="#page7" data-transition="none" data-theme="b" data-icon="">Calcutale</a>
             </div>
         </div>
         <!-- Weeks Days -->
@@ -172,25 +177,25 @@
                 </h3>
             </div>
             <div data-role="content" style="padding: 15px">
-                <div data-role="navbar" data-iconpos="top">
+                <div data-role="navbar" data-iconpos="top" >
                     <ul>
                         <li>
-                            <a href="#page3" data-theme="b" data-icon="">
+                            <a href="#page3" data-transition="none" data-theme="b" data-icon="">
                                 LNM
                             </a>
                         </li>
                         <li>
-                            <a href="#page5" data-theme="b" data-icon="">
+                            <a href="#page5" data-transition="none" data-theme="b" data-icon="">
                                 Weeks/Days
                             </a>
                         </li>
                         <li>
-                            <a href="#page4" data-theme="b" data-icon="">
+                            <a href="#page4" data-transition="none" data-theme="b" data-icon="">
                                 EDD
                             </a>
                         </li>
                         <li>
-                            <a href="#page6" data-theme="b" data-icon="">
+                            <a href="#page6" data-transition="none" data-theme="b" data-icon="">
                                 Past Date
                             </a>
                         </li>
@@ -221,8 +226,8 @@
                             <input name="nowdays" id="textinput15" placeholder="" value="0" type="range" min="0" max="6">
                         </fieldset>
                     </div>
-                    <input type="button" data-theme="b" value="Calculate" onClick="location.href='#page7';">
                 </form>
+                <a data-role="button" href="#page7" data-transition="none" data-theme="b" data-icon="">Calcutale</a>
             </div>
         </div>
         <!-- EDD -->
@@ -233,25 +238,25 @@
                 </h3>
             </div>
             <div data-role="content" style="padding: 15px">
-                <div data-role="navbar" data-iconpos="top">
+                <div data-role="navbar" data-iconpos="top" >
                     <ul>
                         <li>
-                            <a href="#page3" data-theme="b" data-icon="">
+                            <a href="#page3" data-transition="none" data-theme="b" data-icon="">
                                 LNM
                             </a>
                         </li>
                         <li>
-                            <a href="#page5" data-theme="b" data-icon="">
+                            <a href="#page5" data-transition="none" data-theme="b" data-icon="">
                                 Weeks/Days
                             </a>
                         </li>
                         <li>
-                            <a href="#page4" data-theme="b" data-icon="">
+                            <a href="#page4" data-transition="none" data-theme="b" data-icon="">
                                 EDD
                             </a>
                         </li>
                         <li>
-                            <a href="#page6" data-theme="b" data-icon="">
+                            <a href="#page6" data-transition="none" data-theme="b" data-icon="">
                                 Past Date
                             </a>
                         </li>
@@ -271,12 +276,12 @@
                             <label for="textinput8">
                                 Expected Date of Delivery
                             </label>
-                            <input name="edd" id="textinput8" type="date" data-role="datebox"
+                            <input name="edd" id="textinput8" type="date" data-transition="none" data-role="datebox"
                                data-options='{"mode": "datebox"}' value="">
                         </fieldset>
                     </div>
-                    <input type="button" data-theme="b" value="Calculate" onClick="location.href='#page7';">
                 </form>
+                <a data-role="button" href="#page7" data-transition="none" data-theme="b" data-icon="">Calcutale</a>
             </div>
         </div>
         <!-- Past Date -->
@@ -287,25 +292,25 @@
                 </h3>
             </div>
             <div data-role="content" style="padding: 15px">
-                <div data-role="navbar" data-iconpos="top">
+                <div data-role="navbar" data-iconpos="top" >
                     <ul>
                         <li>
-                            <a href="#page3" data-theme="b" data-icon="">
+                            <a href="#page3" data-transition="none" data-theme="b" data-icon="">
                                 LNM
                             </a>
                         </li>
                         <li>
-                            <a href="#page5" data-theme="b" data-icon="">
+                            <a href="#page5" data-transition="none" data-theme="b" data-icon="">
                                 Weeks/Days
                             </a>
                         </li>
                         <li>
-                            <a href="#page4" data-theme="b" data-icon="">
+                            <a href="#page4" data-transition="none" data-theme="b" data-icon="">
                                 EDD
                             </a>
                         </li>
                         <li>
-                            <a href="#page6" data-theme="b" data-icon="">
+                            <a href="#page6" data-transition="none" data-theme="b" data-icon="">
                                 Past Date
                             </a>
                         </li>
@@ -325,7 +330,7 @@
                             <label for="textinput9">
                                 Past Date
                             </label>
-                            <input name="pastdate" id="textinput9" type="date" data-role="datebox"
+                            <input name="pastdate" id="textinput9" type="date" data-transition="none" data-role="datebox"
                                data-options='{"mode": "datebox"}' value="">
                         </fieldset>
                     </div>
@@ -345,8 +350,8 @@
                             <input name="pastdays" id="textinput12" placeholder="" value="0" type="range" min="0" max="6">
                         </fieldset>
                     </div>
-                    <input type="button" data-theme="b" value="Calculate" onClick="location.href='#page7';">
                 </form>
+                <a data-role="button" href="#page7" data-transition="none" data-theme="b" data-icon="">Calcutale</a>
             </div>
         </div>
         <!-- Result -->
@@ -358,25 +363,25 @@
                 </h3>
             </div>
             <div data-role="content" style="padding: 15px">
-                <div data-role="navbar" data-iconpos="top">
+                <div data-role="navbar" data-iconpos="top" >
                     <ul>
                         <li>
-                            <a href="#page3" data-theme="b" data-icon="">
+                            <a href="#page3" data-transition="none" data-theme="b" data-icon="">
                                 LNM
                             </a>
                         </li>
                         <li>
-                            <a href="#page5" data-theme="b" data-icon="">
+                            <a href="#page5" data-transition="none" data-theme="b" data-icon="">
                                 Weeks/Days
                             </a>
                         </li>
                         <li>
-                            <a href="#page4" data-theme="b" data-icon="">
+                            <a href="#page4" data-transition="none" data-theme="b" data-icon="">
                                 EDD
                             </a>
                         </li>
                         <li>
-                            <a href="#page6" data-theme="b" data-icon="">
+                            <a href="#page6" data-transition="none" data-theme="b" data-icon="">
                                 Past Date
                             </a>
                         </li>
@@ -389,7 +394,7 @@
                     <p id="result">
                     </p>
                 </div>
-                <a data-role="button" data-transition="fade" data-theme="b" href="#page1">
+                <a data-role="button" data-transition="none" data-theme="b" href="#page1">
                     Home
                 </a>
                 <script type="text/javascript">
